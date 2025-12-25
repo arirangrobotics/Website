@@ -1,14 +1,17 @@
 :root {
-    --primary: #00d2ff;
-    --secondary: #3a7bd5;
-    --dark: #0a0e14;
-    --dark-lighter: #161b22;
-    --text: #e6edf3;
-    --text-muted: #8b949e;
+    --primary: #ffffff;
+    --primary-dark: #e0e0e0;
+    --secondary: #333333;
+    --dark: #000000;
+    --dark-lighter: #0a0a0a;
+    --dark-card: #111111;
+    --text: #ffffff;
+    --text-muted: #a0a0a0;
     --white: #ffffff;
-    --accent: #00d2ff;
-    --glass: rgba(255, 255, 255, 0.05);
-    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --accent: #ffffff;
+    --glass: rgba(255, 255, 255, 0.03);
+    --border: rgba(255, 255, 255, 0.1);
+    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 * {
@@ -102,34 +105,36 @@ img {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--secondary));
-    color: var(--white);
-    box-shadow: 0 10px 20px rgba(0, 210, 255, 0.2);
+    background-color: var(--white);
+    color: var(--dark);
+    border: 1px solid var(--white);
 }
 
 .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 30px rgba(0, 210, 255, 0.4);
+    background-color: transparent;
+    color: var(--white);
 }
 
 .btn-secondary {
-    background-color: var(--glass);
+    background-color: transparent;
     color: var(--white);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .btn-secondary:hover {
     background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--white);
 }
 
 .btn-outline {
-    border: 1px solid var(--primary);
-    color: var(--primary);
+    border: 1px solid var(--white);
+    color: var(--white);
     background: transparent;
 }
 
 .btn-outline:hover {
-    background: var(--primary);
+    background: var(--white);
     color: var(--dark);
 }
 
@@ -205,13 +210,20 @@ nav a:hover {
 
 .hero-img {
     width: 100%;
-    filter: drop-shadow(0 0 30px rgba(0, 210, 255, 0.2));
+    filter: grayscale(1) brightness(0.9);
     animation: float 6s ease-in-out infinite;
 }
 
 @keyframes float {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
 }
 
 /* Mission Section */
@@ -220,18 +232,17 @@ nav a:hover {
 }
 
 .mission-card {
-    background-color: var(--dark-lighter);
+    background-color: var(--dark-card);
     padding: 3rem 2rem;
-    border-radius: 20px;
+    border-radius: 0px;
     text-align: center;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
     transition: var(--transition);
 }
 
 .mission-card:hover {
     transform: translateY(-10px);
-    border-color: var(--primary);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    border-color: var(--white);
 }
 
 .mission-card .icon {
@@ -254,10 +265,10 @@ nav a:hover {
 }
 
 .product-card {
-    background-color: var(--dark);
-    border-radius: 20px;
+    background-color: var(--dark-card);
+    border-radius: 0px;
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
     transition: var(--transition);
 }
 
@@ -325,7 +336,7 @@ nav a:hover {
     font-size: 1.2rem;
     display: block;
     margin-bottom: 0.5rem;
-    color: var(--primary);
+    color: var(--white);
 }
 
 .tech-visual {
@@ -362,7 +373,7 @@ nav a:hover {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: var(--primary);
+    color: var(--white);
 }
 
 /* Footer */
@@ -395,8 +406,15 @@ nav a:hover {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Responsive */
@@ -406,16 +424,16 @@ nav a:hover {
         justify-content: center;
         text-align: center;
     }
-    
+
     .hero-content {
         margin-top: 100px;
         order: 2;
     }
-    
+
     .hero h1 {
         font-size: 2.5rem;
     }
-    
+
     .hero-image-wrap {
         position: relative;
         width: 80%;
@@ -425,15 +443,15 @@ nav a:hover {
         order: 1;
         margin: 0 auto;
     }
-    
+
     .hero-btns {
         justify-content: center;
     }
-    
+
     .tech-content {
         flex-direction: column;
     }
-    
+
     .glass-card {
         width: 100%;
         max-width: 400px;
